@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- other setting :  -->
+    <settings>
+        <!-- 给予被嵌套的resultMap以字段-属性的映射支持 -->
+        <setting name="autoMappingBehavior" value="FULL" />
+        <!-- 数据库超过30秒仍未响应则超时 -->
+        <setting name="defaultStatementTimeout" value="10" />
+    </settings>
+    <mappers>
+    </mappers>
+</configuration>

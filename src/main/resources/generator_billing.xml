@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+	<!--classPathEntry:数据库的JDBC驱动,换成你自己的驱动位置 -->
+	<!--<classPathEntry location="D:\generator_mybatis\mysql-connector-java-5.1.24-bin.jar" 
+		/> -->
+	<!--defaultModelType="flat" 大数据字段，不分表 -->
+	<context id="MSTables" targetRuntime="MyBatis3"
+		defaultModelType="flat">
+		<!--列，表名，与数据库关键字相同，的处理方式 -->
+		<property name="autoDelimitKeywords" value="true" />
+		<property name="beginningDelimiter" value="`" />
+		<property name="endingDelimiter" value="`" />
+		<!--指定生成的java文件的编码格式 -->
+		<property name="javaFileEncoding" value="utf-8" />
+		<!--实体实现序列号接口 -->
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+		<!--实体生成toString方法 -->
+		<plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+
+
+
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://127.0.0.1/ycydb" userId="ycy"
+			password="123456"></jdbcConnection>
+
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<!-- targetProject:自动生成代码的entity位置 center.dao.entity -->
+		<javaModelGenerator targetPackage="com.ycy.center.dao.entity"
+			targetProject="src/main/java">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+		<!-- targetProject:自动生成代码的mapper位置 -->
+		<sqlMapGenerator targetPackage="com.ycy.center.dao.mapper"
+			targetProject="src/main/java">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+		<!-- targetProject:自动生成代码的dao位置 -->
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="com.ycy.center.dao.mapper"
+			targetProject="src/main/java">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+
+		<!-- 添加表 -->
+		<!-- <table tableName="ad_billing_express" enableCountByExample="true" 
+			enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" 
+			selectByExampleQueryId="true"> <property name="useActualColumnNames" value="false" 
+			/> <generatedKey column="id" sqlStatement="Mysql" identity="true" /> </table> -->
+		<!-- <table tableName="ad_user_account" enableCountByExample="true" enableUpdateByExample="true" 
+			enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"> 
+			<property name="useActualColumnNames" value="false" /> <generatedKey column="id" 
+			sqlStatement="Mysql" identity="true" /> </table> -->
+		<table tableName="ycy_table" enableCountByExample="true"
+			enableUpdateByExample="true" enableDeleteByExample="true"
+			enableSelectByExample="true" selectByExampleQueryId="true">
+			<property name="useActualColumnNames" value="false" />
+		</table>
+	</context>
+
+</generatorConfiguration>
